@@ -1,0 +1,99 @@
+#heartbeat-monitor {
+  position: fixed;
+  bottom: 1em;
+  left: 1em;
+  width: 140px;
+  height: 50px;
+  cursor: help;
+  user-select: none;
+  z-index: 1000;
+  animation: glowFlicker 3s infinite ease-in-out;
+
+  /* scale twice size */
+  transform-origin: bottom left;
+  transform: scale(2);
+}
+
+#heartbeat-line {
+  stroke-dasharray: 250;
+  stroke-dashoffset: 250;
+  animation: heartbeatWave 2s ease-in-out infinite;
+}
+
+#heart-rate {
+  color: #ff3c3c;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 14px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* note: scale here remains 1 to keep pulse animation consistent */
+  transform: translate(-50%, -50%) scale(1);
+  animation: heartBeatText 1.5s infinite ease-in-out;
+  text-shadow: 0 0 8px #ff3c3c;
+}
+
+#radio-scanner {
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+  filter: drop-shadow(0 0 5px #ff3c3c);
+  z-index: 1000;
+
+  /* scale twice size */
+  transform-origin: bottom right;
+  transform: scale(2);
+}
+
+#radio-scanner button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+}
+
+#radio-scanner button svg {
+  stroke: #ff3c3c;
+  width: 40px;
+  height: 40px;
+  transition: stroke 0.3s ease;
+}
+
+#radio-scanner button:hover svg {
+  stroke: #e00b0b;
+}
+
+@keyframes heartbeatWave {
+  0% {
+    stroke-dashoffset: 250;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 250;
+  }
+}
+
+@keyframes glowFlicker {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px #ff3c3c);
+    opacity: 1;
+  }
+  50% {
+    filter: drop-shadow(0 0 15px #ff3c3c);
+    opacity: 0.85;
+  }
+}
+
+@keyframes heartBeatText {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.7;
+  }
+}

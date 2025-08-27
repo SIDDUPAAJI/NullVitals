@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="interactive.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NullVitals Info</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #eaeaea;
+      font-family: 'Press Start 2P', cursive;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    header {
+      padding: 1.5em;
+    }
+
+    /* Title */
+    h1 {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 3.5em;
+      color: #f5f5f5;
+      margin-bottom: 0.4em;
+      letter-spacing: 0.1em;
+      text-shadow: 0 0 8px #aaa, 0 0 18px #e0e0e0;
+      animation: flickerTitle 3s infinite;
+    }
+
+    /* Sprite */
+    .poster img {
+      width: 180px;
+      height: auto;
+      margin: 1em 0;
+      image-rendering: pixelated;
+    }
+
+    @keyframes flickerTitle {
+      0%, 19%, 21%, 23%, 80%, 100% { opacity: 1; }
+      20%, 22%, 60% { opacity: 0.6; }
+      24% { opacity: 0.3; }
+    }
+
+    .section {
+      margin: 2em auto;
+      padding: 1em;
+      width: 85%;
+      max-width: 700px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid #555;
+      border-radius: 12px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .section:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .section h2 {
+      font-size: 1.2em;
+      margin-bottom: 0.8em;
+      color: #ff3c3c;
+      text-shadow: 0 0 8px #ff3c3c;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin: 0.7em 0;
+      padding: 0.6em;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 8px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    li:hover {
+      background: rgba(255, 60, 60, 0.2);
+      transform: translateY(-3px);
+    }
+
+    .control-key {
+      color: #00ffe0;
+    }
+
+    footer {
+      margin: 2em;
+      font-size: 0.8em;
+      opacity: 0.6;
+    }
+
+    /* Heartbeat Monitor - bottom left */
+    #heartbeat-monitor {
+      position: fixed;
+      bottom: 1em;
+      left: 1em;
+      cursor: help;
+      animation: heartbeatPulse 1.5s infinite ease-in-out;
+      filter: drop-shadow(0 0 5px #ff3c3c);
+      width: 120px;
+      height: 40px;
+      z-index: 1000;
+    }
+    @keyframes heartbeatPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.1); }
+    }
+
+    /* Radio Scanner - bottom right */
+    #radio-scanner {
+      position: fixed;
+      bottom: 1em;
+      right: 1em;
+      filter: drop-shadow(0 0 5px #ff3c3c);
+      z-index: 1000;
+    }
+    #radio-scanner button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      outline: none;
+    }
+    #radio-scanner button svg {
+      stroke: #ff3c3c;
+      width: 40px;
+      height: 40px;
+      transition: stroke 0.3s ease;
+    }
+    #radio-scanner button:hover svg {
+      stroke: #e00b0b;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>NULL VITALS</h1>
+    <img src="C:\Users\sidde\OneDrive\Pictures\NULL VITALS RESOURCE PACKS\ENTITIES\tank boss\tank_down.png" alt="PatientZero" width="140" />
+  </header>
+
+  <div class="section">
+    <h2>Intro</h2>
+    <p>
+      The outbreak began in silence. Patients vanished, then returned... changed.<br />
+      You are <b>PatientZero</b> — the only survivor still clinging to humanity.<br />
+      Trapped in an abandoned hospital overtaken by parasitic horrors, your mind<br />
+      flickers between sanity and infection. Every hallway whispers your name.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>Controls</h2>
+    <ul>
+      <li><span class="control-key">W / A / S / D</span> — Move through the decaying hospital</li>
+      <li><span class="control-key">Enter</span> — Interact with doors, terminals, Dr. Cure, and healing statues</li>
+      <li><span class="control-key">E</span> — Pick up syringes, medkits, or hidden artifacts</li>
+      <li><span class="control-key">Space</span> — Attack with your weapon (melee or gun)</li>
+      <li><span class="control-key">Shift</span> — Sprint when the parasite swarm closes in</li>
+      <li><span class="control-key">Esc</span> — Pause & access journal entries of the infected</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Mission Info</h2>
+    <p>
+      Navigate the hospital wings, unlocking sealed wards with stolen keycards.<br />
+      Seek out <b>Dr. Cure</b>, whose experiments may hold the antidote... or damn you further.<br />
+      Collect fragments of the <b>Flame Serum</b>, a weapon capable of burning the parasite from within.<br />
+      Beware: statues may heal your body, but not your soul.<br />
+      Your choices determine whether the outbreak ends... or begins again.
+    </p>
+  </div>
+
+ <!-- Enhanced Heartbeat Monitor -->
+<div id="heartbeat-monitor" title="Player Heart Rate: Elevated">
+  <svg viewBox="0 0 140 50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%" >
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#ff3c3c" flood-opacity="0.8"/>
+    </filter>
+    <polyline id="heartbeat-line" fill="none" stroke="#ff3c3c" stroke-width="4" stroke-linejoin="round"
+      points="0,25 18,25 24,10 30,40 36,20 54,20 60,5 66,45 72,25 90,25 96,7 102,43 108,25 140,25" 
+      filter="url(#glow)" />
+  </svg>
+  <div id="heart-rate">120 bpm</div>
+</div>
+
+
+  <!-- Radio Scanner -->
+  <div id="radio-scanner" title="Toggle Radio Static">
+    <button onclick="toggleRadio()" aria-label="Toggle Radio Static">
+      <svg viewBox="0 0 40 40" fill="none" stroke-width="2" xmlns="http://www.w3.org/2000/svg" stroke="#ff3c3c" focusable="false" aria-hidden="true">
+        <rect x="5" y="10" width="30" height="20" rx="3" ry="3" />
+        <line x1="10" y1="20" x2="30" y2="20" />
+        <circle cx="20" cy="15" r="2" fill="#ff3c3c" />
+      </svg>
+    </button>
+    <audio id="radioAudio" loop>
+      <source src="C:\Users\sidde\Downloads\radio-static-323621.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <footer>
+    <p>&copy; NullVitals Team | Assets in <code>/assets/imgs/</code> &lt;code&gt;/assets/sounds/&lt;/code&gt;</p>
+  </footer>
+
+  <script>
+    function toggleRadio() {
+      const audio = document.getElementById('radioAudio');
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+    }
+  </script>
+
+</body>
+</html>
